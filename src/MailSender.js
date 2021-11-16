@@ -1,5 +1,6 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable no-underscore-dangle */
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 
 class MailSender {
   constructor() {
@@ -9,27 +10,27 @@ class MailSender {
       secure: true,
       auth: {
         user: process.env.MAIL_ADDRESS,
-        pass: process.env.MAIL_PASSWORD,
-      },
-    });
+        pass: process.env.MAIL_PASSWORD
+      }
+    })
   }
 
   sendEmail(targetEmail, content) {
     const message = {
-      from: 'Notes Apps',
+      from: 'Music Apps',
       to: targetEmail,
-      subject: 'Ekspor Catatan',
-      text: 'Terlampir hasil dari ekspor catatan',
+      subject: 'Ekspor Musik',
+      text: 'Terlampir hasil dari ekspor musik',
       attachments: [
         {
-          filename: 'notes.json',
-          content,
-        },
-      ],
-    };
+          filename: 'songs.json',
+          content
+        }
+      ]
+    }
 
-    return this._transporter.sendMail(message);
+    return this._transporter.sendMail(message)
   }
 }
 
-module.exports = MailSender;
+module.exports = MailSender
